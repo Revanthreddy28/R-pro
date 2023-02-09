@@ -1,0 +1,14 @@
+x <- 5 # Declare a variable x with value 5
+class(x) # Determine the class of variable x
+"numeric"
+
+typeof(x) # Determine the type of variable x
+"double"
+
+y <- "Hello World" # Declare a variable y with value "Hello World"
+class(y) # Determine the class of variable y
+"character"
+
+typeof(y) # Determine the type of variable y
+"character"
+

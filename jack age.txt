@@ -1,0 +1,7 @@
+# Take Input from User
+name <- readline(prompt="Enter your name: ")
+age <- as.numeric(readline(prompt="Enter your age: "))
+
+# Display Output
+message <- paste("Hai ,", name, " next year you will be ", age+1, " years old")
+print(message)

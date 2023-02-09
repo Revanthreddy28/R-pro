@@ -1,0 +1,20 @@
+# Create two vectors
+a <- c(2, 4, 6)
+b <- c(1, 2, 3)
+
+# Addition
+c <- a + b
+print(c)
+
+# Subtraction
+c <- a - b
+print(c)
+
+# Multiplication
+c <- a * b
+print(c)
+
+# Division
+c <- a / b
+print(c)
+

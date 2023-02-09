@@ -1,0 +1,9 @@
+# Input the length and width of the rectangle
+length <- as.numeric(readline("Enter the length of the rectangle: "))
+width <- as.numeric(readline("Enter the width of the rectangle: "))
+
+# Calculate the area of the rectangle
+area <- length * width
+
+# Display the area of the rectangle
+cat("The area of the rectangle is:", area)

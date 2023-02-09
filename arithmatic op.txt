@@ -1,0 +1,23 @@
+x <- 10
+y <- 5
+
+# Addition
+result_add <- x + y
+print(result_add)
+
+# Subtraction
+result_sub <- x - y
+print(result_sub)
+
+# Multiplication
+result_mul <- x * y
+print(result_mul)
+
+# Division
+result_div <- x / y
+print(result_div)
+
+# Exponentiation
+result_exp <- x ^ y
+
+print(result_exp)

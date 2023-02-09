@@ -1,0 +1,19 @@
+# Declare variables
+x <- 10
+y <- 20
+z <- "Hello, World!"
+
+# Retrieve the values of the stored variables
+print(x)
+print(y)
+print(z)
+# Declare variables
+assign("x", 10)
+assign("y", 20)
+assign("z", "Hello, World!")
+
+# Retrieve the values of the stored variables
+print(x)
+print(y)
+print(z)
+

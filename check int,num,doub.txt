@@ -1,0 +1,23 @@
+# create a variable x with value 5
+x <- 5
+
+# check the class of x
+class(x)
+
+# create a variable y with value 5 + 4i
+y <- 5 + 4i
+
+# check the class of y
+class(y)
+
+# create a variable z with value 3L
+z <- 3L
+
+# check the class of z
+class(z)
+
+# create a variable w with value 3.14
+w <- 3.14
+
+# check the class of w
+class(w)
