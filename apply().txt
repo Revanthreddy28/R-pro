@@ -1,0 +1,10 @@
+# Define a matrix
+mat <- matrix(1:9, nrow=3, ncol=3)
+
+# Use apply() to calculate the sum of each row
+row_sums <- apply(mat, 1, sum)
+row_sums
+
+# Use apply() to calculate the sum of each column
+column_sums <- apply(mat, 2, sum)
+column_sums

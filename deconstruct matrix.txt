@@ -1,0 +1,14 @@
+# Define a matrix
+mat <- matrix(c(1,2,3,4), nrow=2, ncol=2)
+
+# Access the first element
+first_element <- mat[1,1]
+first_element
+
+# Access the second row
+second_row <- mat[2, ]
+second_row
+
+# Access the second column
+second_column <- mat[ ,2]
+second_column

@@ -1,0 +1,18 @@
+# Define a simple S4 class with a single attribute
+setClass("Person", representation(name="character", age="numeric"))
+
+# Create an object of the Person class
+person1 <- new("Person", name="sam", age=24)
+person1
+
+# Access the attributes of the object
+slot(person1, "name")
+slot(person1, "age")
+
+# Define a method for the Person class
+setMethod("print", "Person", function(x) {
+  cat("Name:", slot(x, "name"), "\nAge:", slot(x, "age"), "\n")
+})
+
+# Print the object
+person1

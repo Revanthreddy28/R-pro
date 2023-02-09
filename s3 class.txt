@@ -1,0 +1,18 @@
+# Define a simple S3 class with a single attribute
+Person <- setClass("Person", representation(name="character", age="numeric"))
+
+# Create an object of the Person class
+person1 <- new("Person", name="sam", age=24)
+person1
+
+# Access the attributes of the object
+person1@name
+person1@age
+
+# Define a method for the Person class
+setMethod("print", "Person", function(x) {
+  cat("Name:", x@name, "\nAge:", x@age, "\n")
+})
+
+# Print the object
+person1

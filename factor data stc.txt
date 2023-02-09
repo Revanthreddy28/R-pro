@@ -1,0 +1,16 @@
+# Define a vector of character values
+vec <- c("apple", "banana", "apple", "orange", "banana")
+
+# Convert the vector to a factor
+factor_vec <- factor(vec)
+factor_vec
+
+# Check the levels of the factor
+levels(factor_vec)
+
+# Count the frequency of each level
+table(factor_vec)
+
+# Change the order of levels
+factor_vec2 <- factor(vec, levels = c("banana", "apple", "orange"))
+factor_vec2

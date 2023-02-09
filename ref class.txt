@@ -1,0 +1,22 @@
+# Load the methods library
+library(methods)
+
+# Define the Student reference class
+Student <- setRefClass("Student", fields = list(
+  name = "character",
+  age = "numeric",
+  GPA = "numeric"
+))
+
+# Create an object of the Student class
+student1 <- Student$new(name="sampath", age=24, GPA=3.5)
+student1
+
+# Access the attributes of the object
+student1$name
+student1$age
+student1$GPA
+
+# Modify the Name field
+student1$name <- "Paul"
+student1$name

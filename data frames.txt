@@ -1,0 +1,11 @@
+# Define the values for each column
+col1 <- c("Revanth", "sam", "syam")
+col2 <- c(22, 22, 22)
+col3 <- c("New York", "London", "Paris")
+
+# Create a data frame
+df <- data.frame(Name=col1, Age=col2, City=col3)
+df
+
+# Print the structure of the data frame
+str(df)

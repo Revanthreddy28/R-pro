@@ -1,0 +1,13 @@
+# Define a matrix
+mat <- matrix(c(1,2,3,4), nrow=2, ncol=2)
+
+# Scalar multiplication
+scalar_mult <- 2 * mat
+scalar_mult
+# Define two matrices
+mat1 <- matrix(c(1,2,3,4), nrow=2, ncol=2)
+mat2 <- matrix(c(5,6,7,8), nrow=2, ncol=2)
+
+# Matrix multiplication
+mat_mult <- mat1 %*% mat2
+mat_mult
