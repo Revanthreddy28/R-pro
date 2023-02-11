@@ -1,0 +1,203 @@
+DAY-4 LAB MANUAL
+ITA0443-STATISTICS WITH R PROGRAMMING
+I.REVANTH REDDY
+191911268
+
+LINEAR REGRESSION ANALYSIS IN R
+
+Exercise
+1. Using linear regression analysis establish a relationship between height and weight of a person using the input vector given below.
+# Values of height
+151, 174, 138, 186, 128, 136, 179, 163, 152, 131
+# Values of weight.
+63, 81, 56, 91, 47, 57, 76, 72, 62, 48
+Predict the weight of a person with height 170. Visualize the regression graphically.
+# Creating dataframe from height and weight data
+height <- c(151, 174, 138, 186, 128, 136, 179, 163, 152, 131)
+weight <- c(63, 81, 56, 91, 47, 57, 76, 72, 62, 48)
+df <- data.frame(height, weight)
+
+# Fitting the linear regression model
+model <- lm(weight ~ height, data = df)
+
+# Predicting weight for a person with height 170
+predict(model, data.frame(height = 170))
+
+# Visualizing the regression graphically
+library(ggplot2)
+ggplot(df, aes(x = height, y = weight)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  ggtitle("Linear Regression: Height vs Weight") +
+  xlab("Height") +
+  ylab("Weight")
+OUTPUT:
+# Predicting weight for a person with height 170
+
+76.22869
+ 
+2. Download the Dataset “water” From Rdataset Link.Find out whether there is a linear relation between attributes”mortality” and”hardness” by plot function.Fit the Data into the Linear Regression model.Predict the mortality for the hardness=88
+data("water")
+plot(water$hardness, water$mortality)
+ 
+model <- lm(mortality ~ hardness, data = water)
+prediction <- predict(model, newdata = data.frame(hardness = 88))
+plot(water$hardness, water$mortality)
+abline(model)
+ 
+MULTIPLE REGRESSION ANALYSIS IN R
+Exercise:
+1.Generate a multiple regression model using the built in dataset mtcars.It gives a comparison between different car models in terms of mileage per gallon (mpg), cylinder displacement(“disp”), horse power(“hp”), weight of the car(“wt”) and some more parameters.
+Establish the relationship between “mpg” as a response variable with “disp”,”hp” and “wt” as predictor variables. Predict the mileage of the car with dsp=221,hp=102 and wt=2.91.
+
+# Load the mtcars dataset
+data(mtcars)
+
+# Fit the multiple regression model using mpg as the response variable and disp, hp, and wt as the predictor variables
+model <- lm(mpg ~ disp + hp + wt, data = mtcars)
+
+# Predict the mileage of a car with dsp=221, hp=102, and wt=2.91
+newdata <- data.frame(disp = 221, hp = 102, wt = 2.91)
+prediction <- predict(model, newdata)
+
+# Print the predicted mileage
+Prediction
+OUTPUT:
+1 
+22.65987
+
+
+2. Consider the data set “delivery” available in the R environment. It gives a deliverytime (“delTime”)of production materials(number of productions “n.prod”) with the given distance(“distance”) to reach the destination place.
+
+a)Create the model to establish the relationship between “delTime” as a response variable with “n.prod” and “distance” as predictor variables.
+# Load the delivery data set
+data("delivery")
+
+# Fit the linear regression model
+model <- lm(delTime ~ n.prod + distance, data = delivery)
+
+# Summary of the model
+summary(model)
+OUTPUT:
+Call:
+lm(formula = delTime ~ n.prod + distance, data = delivery)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-5.7880 -0.6629  0.4364  1.1566  7.4197 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept) 2.341231   1.096730   2.135 0.044170 *  
+n.prod      1.615907   0.170735   9.464 3.25e-09 ***
+distance    0.014385   0.003613   3.981 0.000631 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 3.259 on 22 degrees of freedom
+Multiple R-squared:  0.9596,	Adjusted R-squared:  0.9559 
+F-statistic: 261.2 on 2 and 22 DF,  p-value: 4.687e-16
+
+b)Predict the delTime for the given number of production(“n.prod”)=9 and
+distance(“distance”)=450
+# Predict delivery time for n.prod = 9 and distance = 450
+newdata <- data.frame(n.prod = 9, distance = 450)
+delTime_pred <- predict(model, newdata)
+delTime_pred
+OUTPUT:
+1 
+23.35757 
+
+
+LOGISTIC REGRESSION ANALYSIS IN R
+
+Exercise
+1. Create a logistic regression model using the “mtcars” data set with the information given
+below.
+The in-built data set “mtcars” describes different models of a car with their various engine specifications. In “mtcars” data set, the transmission mode (automatic or manual) is described by the column am which is a binary value (0 or 1). Create a logistic regression model between the columns “am” and 3 other columns - hp, wt and cyl.
+# Load the mtcars data set
+data(mtcars)
+
+# Create the logistic regression model
+model <- glm(am ~ hp + wt + cyl, data = mtcars, family = binomial(link = "logit"))
+
+# Summary of the model
+summary(model)
+OUTPUT:
+Call:
+glm(formula = am ~ hp + wt + cyl, family = binomial(link = "logit"), 
+    data = mtcars)
+
+Deviance Residuals: 
+     Min        1Q    Median        3Q       Max  
+-2.17272  -0.14907  -0.01464   0.14116   1.27641  
+
+Coefficients:
+            Estimate Std. Error z value Pr(>|z|)  
+(Intercept) 19.70288    8.11637   2.428   0.0152 *
+hp           0.03259    0.01886   1.728   0.0840 .
+wt          -9.14947    4.15332  -2.203   0.0276 *
+cyl          0.48760    1.07162   0.455   0.6491  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 43.2297  on 31  degrees of freedom
+Residual deviance:  9.8415  on 28  degrees of freedom
+AIC: 17.841
+
+Number of Fisher Scoring iterations: 8
+
+# Predict the probability of having automatic transmission for a car with hp = 110, wt = 2.5, and cyl = 6
+newdata <- data.frame(hp = 110, wt = 2.5, cyl = 6)
+predict(model, newdata, type = "response")
+OUTPUT:
+1 
+0.9657718 
+
+POISSON REGRESSION ANALYSIS IN R
+
+Exercise :
+1. Create a Poisson regression model using the in-built data set “warpbreaks” with information given below.
+In-built data set “warpbreaks” describes the effect of wool type (A or B) and tension (low,medium or high) on the number of warp breaks per loom. Consider “breaks” as the response variable which is a count of number of breaks. The wool “type” and “tension” are taken as predictor variables.
+library(datasets)
+data("warpbreaks")
+
+# fit the Poisson regression model
+model <- glm(breaks ~ type + tension, data = warpbreaks, family = poisson(link = "log"))
+
+# check the summary of the model
+summary(model)
+OUTPUT:
+Call:
+glm(formula = breaks ~ type + tension, family = poisson(link = "log"), 
+    data = warpbreaks)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-4.2464  -1.6031  -0.5872   1.2813   4.9366  
+
+Coefficients:
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept)  3.59426    0.03907  91.988  < 2e-16 ***
+tensionM    -0.32132    0.06027  -5.332 9.73e-08 ***
+tensionH    -0.51849    0.06396  -8.107 5.21e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for poisson family taken to be 1)
+
+    Null deviance: 297.37  on 53  degrees of freedom
+Residual deviance: 226.43  on 51  degrees of freedom
+AIC: 507.09
+
+Number of Fisher Scoring iterations: 4
+
+# predict the number of breaks for a given type and tension
+newdata <- data.frame(type = "A", tension = "L")
+predict(model, newdata, type = "response")
+OUTPUT:
+1 
+36.38889 
+
